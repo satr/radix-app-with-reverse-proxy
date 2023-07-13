@@ -1,0 +1,27 @@
+apiVersion: radix.equinor.com/v1
+kind: RadixApplication
+metadata:
+  name: radix-app-with-reverse-proxy
+spec:
+  environments:
+    - name: dev
+      build:
+        from: main
+  components:
+    - name: web-app1
+      src: ./web-app1
+      ports:
+        - name: http
+          port: 8080
+      variables:
+        USER_NAME: user1
+      secrets:
+        - DB_PASS
+    - name: web-api
+      src: ./api
+      ports:
+        - name: http
+          port: 8081
+  dnsAppAlias:
+    environment: dev
+    component: web-app1
