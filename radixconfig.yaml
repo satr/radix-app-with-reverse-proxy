@@ -19,11 +19,11 @@ spec:
         - name: http
           port: 8081
     - name: web-proxy
-      src: ./proxy
+      src: ./web-proxy
       ports:
         - name: http
           port: 8082
       publicPort: http
   dnsAppAlias:
     environment: dev
-    component: web-app1
+    component: web-proxy
