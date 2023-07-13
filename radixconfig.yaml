@@ -13,6 +13,15 @@ spec:
       ports:
         - name: http
           port: 8080
+    - name: web-app2
+      src: ./web-app2
+      ports:
+        - name: http
+          port: 8083
+      variables:
+        USER_NAME: "John Doe"
+      secrets:
+        - DB_PASS
     - name: web-api
       src: ./api
       ports:
