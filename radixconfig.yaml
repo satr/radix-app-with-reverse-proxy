@@ -33,6 +33,9 @@ spec:
         - name: http
           port: 8082
       publicPort: http
+      authentication:
+        oauth2:
+          clientId: 7ef841f8-a263-45ea-8993-683cc6817ae2
   dnsAppAlias:
     environment: dev
     component: web-proxy
