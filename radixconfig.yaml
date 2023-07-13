@@ -13,15 +13,17 @@ spec:
       ports:
         - name: http
           port: 8080
-      variables:
-        USER_NAME: user1
-      secrets:
-        - DB_PASS
     - name: web-api
       src: ./api
       ports:
         - name: http
           port: 8081
+    - name: web-proxy
+      src: ./proxy
+      ports:
+        - name: http
+          port: 8082
+      publicPort: http
   dnsAppAlias:
     environment: dev
     component: web-app1
